@@ -1,0 +1,21 @@
+{
+  "name": "aiJS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jesus R Moreno <jesusrmor94@gmail.com> (http://jesusrmoreno.com/)",
+  "license": "ISC",
+  "dependencies": {
+    "google-distance": "^1.0.1",
+    "gps-distance": "0.0.3",
+    "lodash": "^3.6.0",
+    "react": "^0.13.1",
+    "whatwg-fetch": "^0.7.0"
+  },
+  "devDependencies": {
+    "babelify": "^6.0.2"
+  }
+}
