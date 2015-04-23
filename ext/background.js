@@ -25,7 +25,7 @@ chrome.runtime.onMessage.addListener(function (msg, messageSender, sendResponse)
 });
 
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-
+  console.log(localStorage.blocked);
   if (localStorage.shouldBlock === 'true') {
     console.log('should block sites now');
     var blockedSites = JSON.parse(localStorage.blocked) || [];

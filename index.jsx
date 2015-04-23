@@ -355,6 +355,11 @@ class App extends React.Component {
             points: user.get('points'),
             blocked: user.get('blocked')
           });
+
+          chrome.runtime.sendMessage({
+            blocked: self.state.blocked,
+            type: 'blocked'
+          });
         },
         error: function(user, error) {
           console.log(arguments);
@@ -378,8 +383,6 @@ class App extends React.Component {
           } else {
             User = Parse.Object.extend('Users');
           }
-
-
           var newUser = new User();
           newUser.id = this.state._id;
 
@@ -396,13 +399,10 @@ class App extends React.Component {
             }
           })
         } else {
-
-
           chrome.runtime.sendMessage({
             shouldBlock: true,
             type: 'shouldBlock'
           });
-
         }
       }, 1000 * 2);
     });
@@ -419,7 +419,6 @@ class App extends React.Component {
             blocked: self.state.blocked,
             type: 'blocked'
           });
-
         },
         error: function(err) {
           console.log(err);
@@ -455,6 +454,10 @@ class App extends React.Component {
               blocked: user.get('blocked') || [],
               gps_coords: user.get('gps_coords') || []
             };
+            chrome.runtime.sendMessage({
+              blocked: self.state.blocked,
+              type: 'blocked'
+            });
             console.log(loggedInUser);
             control.emit('new-user', loggedInUser);
           }
